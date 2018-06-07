@@ -14,7 +14,6 @@ class SearchesController < ApplicationController
       end
       body = JSON.parse(@resp.body)
       @resp.success? ? (@venues = body["response"]["venues"]) : (@error = body["meta"]["errorDetail"])
- 
     rescue Faraday::ConnectionFailed
       @error = "There was a timeout. Please try again."
     end
