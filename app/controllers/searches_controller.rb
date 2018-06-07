@@ -11,7 +11,7 @@ class SearchesController < ApplicationController
       req.params['query'] = 'coffee shop'
     end
     body = JSON.parse(@resp.body)
-    @resp.success? ? @venues = body["response"]["venues"] : @error = body["meta"]["errorDetail"]
+    @resp.success? ? (@venues = body["response"]["venues"]) : (@error = body["meta"]["errorDetail"])
     render 'search'
   end
 end
